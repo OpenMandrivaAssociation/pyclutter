@@ -36,6 +36,16 @@ Python bindings for clutter
 
 #----------------------------------------------------------------------------
 
+%package -n python-clutter
+Summary:       Python bindings for clutter
+Group:         Graphics
+Provides:      pyclutter = %{version}-%{release}
+
+%description -n python-clutter
+Python bindings for clutter
+
+#----------------------------------------------------------------------------
+
 %prep
 %if %svn
 %setup -q -n %name
@@ -56,7 +66,7 @@ rm -rf %buildroot
 %clean
 rm -rf %buildroot
 
-%files
+%files -n python-clutter
 %defattr(-,root,root)
 %dir %{py_platsitedir}/clutter
 %{py_platsitedir}/clutter/*
