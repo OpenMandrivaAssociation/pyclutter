@@ -22,7 +22,6 @@ Source0:       %{name}-%{version}.tar.bz2
 License:       LGPL
 Group:         Graphics
 Url:           http://clutter-project.org/
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: clutter-devel
 BuildRequires: clutter-cairo-devel
 BuildRequires: clutter-gst-devel
