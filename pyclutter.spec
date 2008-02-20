@@ -1,6 +1,6 @@
 %define name pyclutter
-%define version 0.4.1
-%define rel 3
+%define version 0.6.0
+%define rel 1
 %define svn 0
 %if %svn
 %define release %mkrel 0.%svn.%rel
@@ -75,6 +75,6 @@ rm -rf %buildroot
 %dir %{_datadir}/%{name}/%{api}/defs
 %{_datadir}/%{name}/%{api}/defs/*.defs
 %dir %{_datadir}/%{name}/defs
-%_datadir/%{name}/defs/*.defs
+%{_datadir}/%{name}/defs/*.defs
 %{_includedir}/%{name}-%{api}/%{name}/%{name}.h
-
+%{_libdir}/pkgconfig/%{name}-0.6.pc
