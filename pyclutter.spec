@@ -1,13 +1,14 @@
 %define name pyclutter
-%define version 0.6.0
+%define version 0.8.0
 %define rel 1
-%define svn 0
+%define svn 3273
 %if %svn
 %define release %mkrel 0.%svn.%rel
 %else
 %define release %mkrel %rel
 %endif
 
+%define apiver 0.8
 %define api 1.0
 
 Summary:       Python bindings for clutter
@@ -70,6 +71,12 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %dir %{py_platsitedir}/clutter
 %{py_platsitedir}/clutter/*
+%dir %{py_platsitedir}/cluttercairo
+%{py_platsitedir}/cluttercairo/*
+%dir %{py_platsitedir}/cluttergst
+%{py_platsitedir}/cluttergst/*
+%dir %{py_platsitedir}/cluttergtk
+%{py_platsitedir}/cluttergtk/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/%{api}
 %dir %{_datadir}/%{name}/%{api}/defs
@@ -77,4 +84,4 @@ rm -rf %buildroot
 %dir %{_datadir}/%{name}/defs
 %{_datadir}/%{name}/defs/*.defs
 %{_includedir}/%{name}-%{api}/%{name}/%{name}.h
-%{_libdir}/pkgconfig/%{name}-0.6.pc
+%{_libdir}/pkgconfig/%{name}-%{apiver}.pc
