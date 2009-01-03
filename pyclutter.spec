@@ -20,6 +20,7 @@ Source0:       %{name}-%{svn}.tar.bz2
 %else
 Source0:       %{name}-%{version}.tar.bz2
 %endif
+Patch0:        pyclutter-linkage.patch
 License:       LGPL
 Group:         Graphics
 Url:           http://clutter-project.org/
@@ -54,15 +55,16 @@ Python bindings for clutter
 %else
 %setup -q
 %endif
+%patch0 -p0
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
 rm -rf %buildroot
 
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf %buildroot
