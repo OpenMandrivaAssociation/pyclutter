@@ -1,6 +1,6 @@
 %define name pyclutter
 %define version 0.8.0
-%define rel 1
+%define rel 2
 %define svn 3273
 %if %svn
 %define release %mkrel 0.%svn.%rel
