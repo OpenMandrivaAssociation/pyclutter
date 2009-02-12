@@ -1,7 +1,7 @@
 %define name pyclutter
-%define version 0.8.0
-%define rel 2
-%define svn 3273
+%define version 0.8.2
+%define rel 1
+%define svn 0
 %if %svn
 %define release %mkrel 0.%svn.%rel
 %else
@@ -18,10 +18,10 @@ Release:       %{release}
 %if %svn
 Source0:       %{name}-%{svn}.tar.bz2
 %else
-Source0:       %{name}-%{version}.tar.bz2
+Source0:       http://www.clutter-project.org/sources/pyclutter/0.8/%{name}-%{version}.tar.bz2
 %endif
 Patch0:        pyclutter-linkage.patch
-License:       LGPL
+License:       LGPLv2+
 Group:         Graphics
 Url:           http://clutter-project.org/
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
