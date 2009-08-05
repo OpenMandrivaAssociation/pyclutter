@@ -1,34 +1,24 @@
 %define name pyclutter
-%define version 0.8.2
+%define version 0.9.2
 %define rel 1
-%define svn 0
-%if %svn
-%define release %mkrel 0.%svn.%rel
-%else
 %define release %mkrel %rel
-%endif
 
-%define apiver 0.8
+%define apiver 0.9
 %define api 1.0
 
 Summary:       Python bindings for clutter
 Name:          %{name}
 Version:       %{version}
 Release:       %{release}
-%if %svn
-Source0:       %{name}-%{svn}.tar.bz2
-%else
-Source0:       http://www.clutter-project.org/sources/pyclutter/0.8/%{name}-%{version}.tar.bz2
-%endif
+Source0:       http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{version}.tar.bz2
 Patch0:        pyclutter-linkage.patch
 License:       LGPLv2+
 Group:         Graphics
 Url:           http://clutter-project.org/
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: clutter-devel >= 0.8.4
-BuildRequires: clutter-cairo-devel >= 0.8.0
-BuildRequires: clutter-gst-devel >= 0.8.0
-BuildRequires: clutter-gtk-devel >= 0.8.2
+BuildRequires: clutter-devel >= 1.0.0
+BuildRequires: clutter-gst-devel >= 0.10.0
+BuildRequires: clutter-gtk-devel >= 0.10.2
 BuildRequires: pygtk2.0-devel >= 2.8.0
 BuildRequires: python-cairo-devel >= 1.0.2
 BuildRequires: gstreamer0.10-python-devel
@@ -49,16 +39,10 @@ Python bindings for clutter
 #----------------------------------------------------------------------------
 
 %prep
-%if %svn
-%setup -q -n %name
-./autogen.sh -V
-%else
 %setup -q
-%endif
-%patch0 -p0
+%patch0 -p1 -b .linkage
 
 %build
-autoreconf -fi
 %configure2_5x
 %make
 
@@ -74,8 +58,6 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %dir %{py_platsitedir}/clutter
 %{py_platsitedir}/clutter/*
-%dir %{py_platsitedir}/cluttercairo
-%{py_platsitedir}/cluttercairo/*
 %dir %{py_platsitedir}/cluttergst
 %{py_platsitedir}/cluttergst/*
 %dir %{py_platsitedir}/cluttergtk
