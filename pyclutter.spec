@@ -1,6 +1,6 @@
 %define name pyclutter
 %define version 0.9.2
-%define rel 1
+%define rel 2
 %define release %mkrel %rel
 
 %define apiver 0.9
@@ -22,6 +22,7 @@ BuildRequires: clutter-gtk-devel >= 0.10.2
 BuildRequires: pygtk2.0-devel >= 2.8.0
 BuildRequires: python-cairo-devel >= 1.0.2
 BuildRequires: gstreamer0.10-python-devel
+BuildRequires: libxslt-proc
 
 %description
 Python bindings for clutter
@@ -36,19 +37,25 @@ Provides:      pyclutter = %{version}-%{release}
 %description -n python-clutter
 Python bindings for clutter
 
-#----------------------------------------------------------------------------
+%package -n python-clutter-devel
+Summary:       Python bindings for clutter
+Group: Development/Python
+Requires: python-clutter  = %{version}-%{release}
+
+%description -n python-clutter-devel
+Python bindings for clutter - development files.
+
 
 %prep
 %setup -q
 %patch0 -p1 -b .linkage
 
 %build
-%configure2_5x
+%configure2_5x --enable-docs
 %make
 
 %install
 rm -rf %buildroot
-
 %makeinstall_std
 
 %clean
@@ -56,15 +63,21 @@ rm -rf %buildroot
 
 %files -n python-clutter
 %defattr(-,root,root)
+%doc AUTHORS README NEWS
 %dir %{py_platsitedir}/clutter
 %{py_platsitedir}/clutter/*
 %dir %{py_platsitedir}/cluttergst
 %{py_platsitedir}/cluttergst/*
 %dir %{py_platsitedir}/cluttergtk
 %{py_platsitedir}/cluttergtk/*
+
+%files -n python-clutter-devel
+%defattr(-,root,root)
+%doc ChangeLog
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/%{api}
 %dir %{_datadir}/%{name}/%{api}/defs
 %{_datadir}/%{name}/%{api}/defs/*.defs
 %{_includedir}/%{name}-%{api}/%{name}/%{name}.h
 %{_libdir}/pkgconfig/%{name}-%{apiver}.pc
+%_datadir/gtk-doc/html/%name/
