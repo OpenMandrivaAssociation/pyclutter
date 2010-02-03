@@ -18,7 +18,6 @@ BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: clutter-devel >= 1.0.0
 BuildRequires: pygtk2.0-devel >= 2.8.0
 BuildRequires: python-cairo-devel >= 1.0.2
-BuildRequires: gstreamer0.10-python-devel
 BuildRequires: libxslt-proc
 
 %description
