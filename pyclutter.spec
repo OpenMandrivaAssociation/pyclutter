@@ -1,6 +1,6 @@
 %define name pyclutter
 %define version 1.0.0
-%define rel 1
+%define rel 2
 %define release %mkrel %rel
 
 %define apiver 1.0
