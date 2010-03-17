@@ -1,7 +1,6 @@
 %define name pyclutter
 %define version 1.0.0
-%define rel 2
-%define release %mkrel %rel
+%define release %mkrel 3
 
 %define apiver 1.0
 %define api 1.0
@@ -11,11 +10,13 @@ Name:          %{name}
 Version:       %{version}
 Release:       %{release}
 Source0:       http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{version}.tar.bz2
+#gw from git, adapt to clutter 1.2 API
+Patch0: pyclutter-build-with-clutter-1.2.patch
 License:       LGPLv2+
 Group:         Graphics
 Url:           http://clutter-project.org/
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: clutter-devel >= 1.0.0
+BuildRequires: clutter-devel >= 1.2.0
 BuildRequires: pygtk2.0-devel >= 2.8.0
 BuildRequires: python-cairo-devel >= 1.0.2
 BuildRequires: libxslt-proc
@@ -44,6 +45,7 @@ Python bindings for clutter - development files.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %configure2_5x --enable-docs
