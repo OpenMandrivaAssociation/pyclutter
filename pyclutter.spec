@@ -1,6 +1,6 @@
 %define name pyclutter
-%define version 1.0.0
-%define release %mkrel 3
+%define version 1.0.2
+%define release %mkrel 1
 
 %define apiver 1.0
 %define api 1.0
@@ -10,8 +10,6 @@ Name:          %{name}
 Version:       %{version}
 Release:       %{release}
 Source0:       http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{version}.tar.bz2
-#gw from git, adapt to clutter 1.2 API
-Patch0: pyclutter-build-with-clutter-1.2.patch
 License:       LGPLv2+
 Group:         Graphics
 Url:           http://clutter-project.org/
