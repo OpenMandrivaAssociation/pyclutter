@@ -1,6 +1,6 @@
 %define name pyclutter
-%define version 1.0.2
-%define release %mkrel 2
+%define version 1.3.2
+%define release %mkrel 1
 
 %define apiver 1.0
 %define api 1.0
@@ -10,7 +10,6 @@ Name:          %{name}
 Version:       %{version}
 Release:       %{release}
 Source0:       http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{version}.tar.bz2
-Patch0:        cogl-base-types.patch
 Patch1:		pyclutter-1.0.2-fix-link.patch
 License:       LGPLv2+
 Group:         Graphics
