@@ -13,6 +13,7 @@ Patch1:		pyclutter-1.0.2-fix-link.patch
 BuildRequires: clutter-devel >= 1.2.0
 BuildRequires: pygtk2.0-devel >= 2.8.0
 BuildRequires: python-cairo-devel >= 1.0.2
+BuildRequires: pkgconfig(gl)
 BuildRequires: xsltproc
 
 %description
