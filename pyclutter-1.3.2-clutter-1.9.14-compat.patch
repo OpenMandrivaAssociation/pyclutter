@@ -1,0 +1,31 @@
+Fix clutter to build against recent clutter in F17. We don't have any pyclutter
+users left in Fedora, so there's not much risk of breaking any client apps.
+Furthermore, the relevant clutter git commit message also says that nothing
+should be using ClutterStageWindow:
+
+    commit b248fbd010d428ec103f2b5cde906403d1eac3f0
+    Author: Emmanuele Bassi <ebassi@gnome.org>
+    Date:   Thu Mar 1 11:06:04 2012 +0000
+
+    Make clutter-stage-window.h a private header
+
+    It should have never been public in the first place; nothing can
+    implement the ClutterStageWindow interface and use it, so this is
+    not a break.
+
+--- pyclutter-1.3.2/clutter/clutter-base-types.defs.compat	2010-10-25 02:00:14.000000000 +0300
++++ pyclutter-1.3.2/clutter/clutter-base-types.defs	2012-03-15 20:17:28.606222439 +0200
+@@ -29,13 +29,6 @@
+   (vtable "ClutterAnimatableIface")
+ )
+ 
+-(define-interface StageWindow
+-  (in-module "Clutter")
+-  (c-name "ClutterStageWindow")
+-  (gtype-id "CLUTTER_TYPE_STAGE_WINDOW")
+-  (vtable "ClutterStageWindowIface")
+-)
+-
+ ; boxed types...
+ 
+ (define-boxed Color
