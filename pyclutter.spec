@@ -7,7 +7,7 @@ Version:	1.3.2
 Release:	6
 License:	LGPLv2+
 Group:		Graphics
-Url:		http://clutter-project.org/
+Url:		https://clutter-project.org/
 Source0:	http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{version}.tar.bz2
 Patch1:		pyclutter-1.0.2-fix-link.patch
 Patch2:		pyclutter-1.3.2-clutter-1.9.2-compat.patch
