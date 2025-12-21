@@ -12,6 +12,11 @@ Source0:	http://www.clutter-project.org/sources/pyclutter/%apiver/%{name}-%{vers
 Patch1:		pyclutter-1.0.2-fix-link.patch
 Patch2:		pyclutter-1.3.2-clutter-1.9.2-compat.patch
 Patch3:		pyclutter-1.3.2-clutter-1.9.14-compat.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	clutter-devel >= 1.2.0
 BuildRequires:	pygtk2.0-devel >= 2.8.0
 BuildRequires:	python-cairo-devel >= 1.0.2
